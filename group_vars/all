@@ -1,0 +1,19 @@
+---
+#Common variables for Ansible
+#If site in develop then true. If in production - false
+#develop: true
+# Path to ssh key
+#ssh_key_path: /home/alex/.ssh/sshkeys/sec_vps_rsa_id.pub
+# Variables for  NGINX
+vhosts_path: '/var/www'
+#
+# Variables for site 
+client_site_name: mebel.local
+client_dbuser_name: mebel_local
+client_dbname: mebel_local
+# Variables for MariaDB
+mysql_root_file:  '/home/alex/projects/mysql_root'
+mysql_root_password: "{{ lookup('file', mysql_root_file ) }}"
+# Varables for Wordpress
+# Variables for fail2ban
+

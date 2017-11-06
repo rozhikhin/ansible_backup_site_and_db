@@ -1,0 +1,6 @@
+---
+- hosts: webservers
+  roles:
+        - backup_site
+        - backup_db
+  become: yes
