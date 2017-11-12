@@ -5,17 +5,17 @@
 - name: Create backup archive
   archive:
         path: "{{ vhosts_path }}/{{ client_site_name }}"
-        dest: "{{ vhosts_path }}/WP_{{ client_site_name }}-{{ backup_date }}.bz2"
-        format: bz2
+        dest: "{{ vhosts_path }}/WP_{{ client_site_name }}-{{ backup_date }}.zip"
+        format: zip
 
 - name: Copy archive from remote to local
   fetch:
-        src: "{{ vhosts_path }}/WP_{{ client_site_name }}-{{ backup_date }}.bz2"
-        dest: "backup/WP_{{ client_site_name }}-{{ backup_date }}.bz2 "
+        src: "{{ vhosts_path }}/WP_{{ client_site_name }}-{{ backup_date }}.zip"
+        dest: "backup/WP_{{ client_site_name }}-{{ backup_date }}.zip"
         flat: yes
 
 - name: Remove archive from remote host
   file: 
-        path: "{{ vhosts_path }}/WP_{{ client_site_name }}-{{ backup_date }}.bz2"
+        path: "{{ vhosts_path }}/WP_{{ client_site_name }}-{{ backup_date }}.zip"
         state: absent
 
